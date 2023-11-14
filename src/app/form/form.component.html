@@ -1,0 +1,18 @@
+<form #formModule="ngForm">
+
+    <label>Name</label><br><br>
+
+    <input type="text" name="name1" #name="ngModel" [(ngModel)]="nameOne" minlength="6" required><br>
+
+        <span *ngIf="!name.valid && (name.dirty || name.touched)" style="color: red;">Required
+            <span *ngIf="!name.errors?.['minlength']">
+
+                Minimum Six Required
+
+            </span>
+        </span>
+
+    <button [disabled]="!formModule.valid">submit</button>
+
+ 
+</form>
